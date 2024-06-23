@@ -4,6 +4,7 @@ require_once __DIR__ . '/../models/Flight.php';
 require_once __DIR__ . '/../models/Airline.php';
 require_once __DIR__ . '/../models/Airport.php';
 require_once __DIR__ . '/../models/Gate.php';
+require_once __DIR__ . '/../models/Passenger.php';
 
 class FlightController extends Controller
 {
@@ -11,6 +12,7 @@ class FlightController extends Controller
     private $airlineModel;
     private $airportModel;
     private $gateModel;
+    private $passengerModel;
 
     public function __construct()
     {
@@ -18,10 +20,18 @@ class FlightController extends Controller
         $this->airlineModel = new Airline();
         $this->airportModel = new Airport();
         $this->gateModel = new Gate();
+        $this->passengerModel = new Passenger();
     }
 
     public function index()
     {
+        if (!$_SERVER['REQUEST_METHOD'] === 'GET') {
+            return $this->view('flights', [
+                'title' => 'Vluchtenoverzicht',
+                'error' => 'Invalid request method'
+            ]);
+        }
+
         $sortBy = isset($_GET['sort']) ? $_GET['sort'] : 'vluchtnummer';
         $sortOrder = isset($_GET['order']) && $_GET['order'] === 'asc' ? 'asc' : 'desc';
         $toggleOrder = $sortOrder === 'asc' ? 'desc' : 'asc';
@@ -104,19 +114,23 @@ class FlightController extends Controller
         }
     }
 
-    public function personalFlights()
+    public function personal()
     {
-        if (!isset($_SESSION['name'])) {
-            header('Location: /login');
-            exit();
+        if (!$_SERVER['REQUEST_METHOD'] === 'GET') {
+            return $this->view('personal-flights', [
+                'title' => 'Mijn vluchtgegevens',
+                'error' => 'Invalid request method'
+            ]);
         }
 
-        $flights = $this->flightModel->getPersonalFlights($_SESSION['name']);
+        $passengerNumber = $_SESSION['passengerNumber'];
+        $flights = $this->flightModel->getFlightByPassengerNumber($passengerNumber);
+        $passenger = $this->passengerModel->getPersonalInfo($passengerNumber);
 
         return $this->view('personal-flights', [
             'title' => 'Mijn vluchtgegevens',
-            'flights' => $flights
+            'flights' => $flights,
+            'passenger' => $passenger
         ]);
     }
-
 }

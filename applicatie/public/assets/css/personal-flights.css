@@ -1,0 +1,69 @@
+/* personal-flights.css */
+
+body {
+    background-color: var(--light-gray);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#personal-flights-container {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#personal-flights-container h1 {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 1em;
+}
+
+#personal-flights-container .alert {
+    color: var(--red);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.passenger-info,
+.flight-info {
+    margin-bottom: 2em;
+}
+
+.passenger-info h2,
+.flight-info h2 {
+    color: var(--primary-blue);
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.passenger-info p,
+.flight-info p {
+    font-size: 1.2em;
+    color: var(--dark-gray);
+    margin: 0.5em 0;
+}
+
+.flight-info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.flight-info th,
+.flight-info td {
+    border: 1px solid var(--darker-gray);
+    padding: 10px;
+    text-align: left;
+}
+
+.flight-info th {
+    background-color: var(--primary-blue);
+    color: var(--light-gray);
+}
+
+.flight-info td {
+    background-color: #fff;
+}

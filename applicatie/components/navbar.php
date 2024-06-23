@@ -3,6 +3,11 @@
         <img src="/assets/images/logo.png" alt="Logo van Gelre checkin">
         <span>Gelre checkin</span>
     </a>
+
+    <?php 
+        print_r($_SESSION);
+    ?>
+
     <ul class="nav-links">
         <?php
         if (
@@ -19,7 +24,7 @@
             isset($_SESSION['type']) &&
             $_SESSION['type'] == 'passenger'
         ) {
-            echo '<li><a href="/mijn-vluchtgegevens">Mijn vlucht gegevens</a></li>';
+            echo '<li><a href="/flights/personal">Mijn vluchten</a></li>';
         }
         ?>
 

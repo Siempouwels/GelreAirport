@@ -60,7 +60,6 @@ class Flight extends Model
             if (strtotime($departureTime) < time()) {
                 throw new RuntimeException('Departure time must be in the future.');
             }
-            
 
             $maxPassengers = (int) $maxPassengers;
             $maxWeightPerPassenger = (float) $maxWeightPerPassenger;
@@ -97,11 +96,32 @@ class Flight extends Model
         }
     }
 
-    public function getPersonalFlights($passengerId)
+    public function getFlightByPassengerNumber($passengerNumber)
     {
-        $sql = "SELECT * FROM {$this->table} WHERE passagiersnummer = :passagiersnummer";
-        $params = ['passagiersnummer' => $passengerId];
+        // Validate input parameter
+        if (empty($passengerNumber)) {
+            throw new InvalidArgumentException('Passenger number must be provided.');
+        }
 
-        return $this->fetchAll($sql, $params);
+        // First, select the flight numbers where passagiernummer = $passengerNumber
+        $sql = "SELECT vluchtnummer FROM Passagier WHERE passagiernummer = :passengerNumber";
+        $params = ['passengerNumber' => $passengerNumber];
+        $flightNumbers = $this->fetchAll($sql, $params);
+
+        if (empty($flightNumbers)) {
+            return []; // No flights found for this passenger
+        }
+
+        // Extract flight numbers into a simple array
+        $flightNumbersArray = array_column($flightNumbers, 'vluchtnummer');
+
+        // Prepare the placeholder string for the IN clause
+        $placeholders = implode(',', array_fill(0, count($flightNumbersArray), '?'));
+
+        // Second, select all flight details where vluchtnummer is in the flight numbers array
+        $flightsSql = "SELECT * FROM {$this->table} WHERE vluchtnummer IN ($placeholders)";
+
+        // Execute the query with the flight numbers as parameters
+        return $this->fetchAll($flightsSql, $flightNumbersArray);
     }
 }
