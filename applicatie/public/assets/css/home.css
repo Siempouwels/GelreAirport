@@ -1,0 +1,38 @@
+
+section.practical-info {
+    margin: 3em 2em 0em 2em;
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .info-cards {
+    padding: 2em;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .article-card {
+    padding: 1em 2em;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    flex: 1;
+    /* Add this line */
+  }
+  
+  .article-card h3 {
+    margin-top: 0.5em;
+    font-weight: 600;
+  }
+  
+  .article-card p {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }

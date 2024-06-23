@@ -1,0 +1,101 @@
+nav.navbar {
+    height: 75px;
+    background-color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-logo:hover img {
+    filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(120deg);
+}
+
+.nav-logo:hover span {
+    color: var(--light-blue);
+}
+
+.nav-logo img {
+    display: inline-block;
+    margin-left: 3em;
+    height: 100%;
+    width: auto;
+    filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(120deg) brightness(2) contrast(2);
+}
+
+.nav-logo span {
+    font-size: 2em;
+    color: var(--yellow);
+    font-weight: 600;
+    margin-left: 0.25em;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-right: 3em;
+}
+
+.nav-links li {
+    margin-right: 1em;
+}
+
+.nav-links a {
+    color: var(--yellow);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--light-blue);
+}
+
+.logout-button {
+    background-color: var(--primary-blue);
+    color: var(--light-gray);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 1em;
+}
+
+.logout-button:hover {
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+}
+
+/* Breaking point for the nav logo text */
+@media screen and (max-width: 610px) {
+    .nav-logo span {
+        display: none;
+    }
+
+    .nav-logo img {
+        margin-left: 0.5em;
+    }
+
+    .nav-links {
+        margin-right: 0.5em;
+    }
+}
+
+/* Styles for tablets */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .nav-logo img {
+        margin-left: 1.5em;
+    }
+
+    .nav-links {
+        margin-right: 1.5em;
+    }
+}

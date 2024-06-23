@@ -1,0 +1,51 @@
+/* Style the flight overview table */
+body {
+    background-color: var(--light-gray);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-blue);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--darker-gray);
+    background-color: var(--light-gray);
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid var(--darker-gray);
+}
+
+th {
+    background-color: var(--light-blue);
+    text-align: left;
+    color: var(--dark-blue-faded);
+}
+
+/* Style table links */
+table a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+/* Style the "No flights found" message */
+p.no-flights {
+    text-align: center;
+    color: var(--red);
+    font-size: 18px;
+    margin-top: 20px;
+}

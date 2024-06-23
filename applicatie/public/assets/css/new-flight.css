@@ -1,0 +1,68 @@
+/* new-flight.css */
+
+#new-flight-container {
+    background-color: var(--light-gray);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+#new-flight-container h1 {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-top: 20px;
+}
+
+#new-flight-container form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#new-flight-container .form-group {
+    margin-bottom: 15px;
+}
+
+#new-flight-container .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--dark-gray);
+}
+
+#new-flight-container .form-group input,
+#new-flight-container .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--darker-gray);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--dark-gray);
+}
+
+#new-flight-container .form-group input[type="datetime-local"] {
+    padding: 9px;
+}
+
+#new-flight-container .form-group button {
+    background-color: var(--primary-blue);
+    color: var(--light-gray);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#new-flight-container .form-group button:hover {
+    background-color: var(--secondary-blue);
+}
+
+#new-flight-container .error {
+    color: var(--red);
+    text-align: center;
+    margin-bottom: 20px;
+}

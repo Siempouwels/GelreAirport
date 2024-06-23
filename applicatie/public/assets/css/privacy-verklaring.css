@@ -1,0 +1,42 @@
+/* Stijl voor de privacyverklaringpagina */
+
+.privacy-policy {
+    margin: 3em 2em;
+    color: var(--light-gray); /* Text color */
+}
+
+.privacy-policy h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--yellow); /* Heading color */
+}
+
+.privacy-policy p {
+    margin-bottom: 1em;
+}
+
+/* Voeg andere stijlregels toe op basis van uw ontwerpbehoeften */
+
+/* Algemene stijlen voor de website */
+
+/* Kop- en tekststijlen */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Koppelingen */
+a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
